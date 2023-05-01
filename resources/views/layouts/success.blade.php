@@ -14,9 +14,6 @@
 </head>
 
 <body>
-    <!-- Navigation -->
-
-    @include('includes.navbar')
 
     <!-- Page Content -->
     @yield('content')

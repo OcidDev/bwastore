@@ -16,7 +16,7 @@
 <body>
     <!-- Navigation -->
 
-    @include('includes.navbar')
+    @include('includes.navbar-auth')
 
     <!-- Page Content -->
     @yield('content')

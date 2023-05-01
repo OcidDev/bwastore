@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/categories', [HomeController::class, 'category'])->name('categories');
+Route::get('/details/{id}', [HomeController::class, 'details'])->name('details');
+Route::get('/cart/{id}', [HomeController::class, 'cart'])->name('cart');
+Route::get('/success/', [HomeController::class, 'success'])->name('success');
+
+Route::get('/register/success/', [RegisterController::class, 'success'])->name('register-success');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
