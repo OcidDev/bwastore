@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -35,5 +36,11 @@ Route::get('/dashboard/transaction/{id}', [DashboardController::class, 'transact
 
 Route::get('/dashboard/setting', [DashboardController::class, 'setting'])->name('dashboard-setting');
 Route::get('/dashboard/account', [DashboardController::class, 'account'])->name('dashboard-account');
+
+
+// ->middleware(['auth','admin'])
+Route::prefix('admin')->group(function() {
+    Route::get('/', [AdminController::class, 'index'])->name('admin-dashboard');
+});
 
 Auth::routes();
