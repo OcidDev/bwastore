@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\RegisterController;
 
 /*
@@ -23,5 +24,16 @@ Route::get('/cart/{id}', [HomeController::class, 'cart'])->name('cart');
 Route::get('/success/', [HomeController::class, 'success'])->name('success');
 
 Route::get('/register/success/', [RegisterController::class, 'success'])->name('register-success');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+Route::get('/dashboard/product', [DashboardController::class, 'product'])->name('dashboard-product');
+Route::get('/dashboard/product/{id}', [DashboardController::class, 'product_detail'])->name('dashboard-product-detail');
+
+Route::get('/dashboard/transaction', [DashboardController::class, 'transaction'])->name('dashboard-transaction');
+Route::get('/dashboard/transaction/{id}', [DashboardController::class, 'transaction_detail'])->name('dashboard-transaction-detail');
+
+Route::get('/dashboard/setting', [DashboardController::class, 'setting'])->name('dashboard-setting');
+Route::get('/dashboard/account', [DashboardController::class, 'account'])->name('dashboard-account');
 
 Auth::routes();
